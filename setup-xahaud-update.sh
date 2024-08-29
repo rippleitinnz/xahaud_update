@@ -101,7 +101,8 @@ SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
 # Run the script every 12 hours with a random delay every hour
-0 */12 * * * sleep $((RANDOM * 3540 / 32768)) && $UPDATE_SCRIPT_PATH >> $LOG_FILE 2>&1
+*/5 * * * * sleep $((RANDOM * 300 / 32768)) && $UPDATE_SCRIPT_PATH >> $LOG_FILE 2>&1
+#0 */12 * * * sleep $((RANDOM * 3540 / 32768)) && $UPDATE_SCRIPT_PATH >> $LOG_FILE 2>&1
 EOF
 
 # Set appropriate permissions for the cron file
