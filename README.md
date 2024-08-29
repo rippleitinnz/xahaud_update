@@ -7,6 +7,7 @@ This repository contains a setup script that installs a Xahaud update script and
 1. **Clone the Repository:**
 
     git clone https://github.com/rippleitinnz/xahaud_update.git
+
     cd xahaud_update
 
 2. **Run the setup script:**
