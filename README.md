@@ -21,7 +21,7 @@ Set up a cron job to run the update script every hour with a random delay.
 Restart the cron service to apply the changes.
 If a new release is found, the script will download it, update the Xahaud service, and log the activities to /opt/xahaud/log/update.log.
 
-Notes
+**Notes**
 The sleep \$((RANDOM*3540/32768)) line in the cron file introduces a random delay to prevent all instances from running at the same time, which helps distribute the load more evenly.
 
 This update script assumes the following:
