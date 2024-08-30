@@ -1,6 +1,6 @@
 # Xahaud Update Script
 
-This repository contains a setup script that installs a Xahaud update script and sets up a cron job to run it hourly.
+This repository contains a setup script that installs a Xahaud auto-update script and sets up a cron job to run every 12 hours.
 
 ## Installation
 
@@ -17,9 +17,9 @@ This repository contains a setup script that installs a Xahaud update script and
 This script will:
 
 Install the Xahaud update script.
-Set up a cron job to run the update script every hour with a random delay.
+Set up a cron job to run the update script every 12 hours with a random 1 hour delay.
 Restart the cron service to apply the changes.
-If a new release is found, the script will download it, update the Xahaud service, and log the activities to /opt/xahaud/log/update.log.
+If a new release is found, the script will download it, update and restart the Xahaud service, and log the activities to /opt/xahaud/log/update.log.
 
 **Notes**
 
@@ -27,9 +27,9 @@ The sleep \$((RANDOM*3540/32768)) line in the cron file introduces a random dela
 
 This update script assumes the following:
 You use the standard installation of Xahaud with standard directory structures
-You download xahaud releases /opt/xahaud/downloads
+You download xahaud releases to /opt/xahaud/downloads
 
-DO NOT USE THIS SCRIPT IF YOU HAVE XAHAUD INSTALLED VIA DOCKER.
+**DO NOT USE THIS SCRIPT IF YOU HAVE XAHAUD INSTALLED VIA DOCKER.**
 
 
 
