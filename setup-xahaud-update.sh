@@ -100,8 +100,8 @@ cat << EOF > "$CRON_FILE_PATH"
 SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
-# Run the script every 12 hours with a random delay every hour
-*/5 * * * * root sleep $((RANDOM * 300 / 32768)) && $UPDATE_SCRIPT_PATH >> $LOG_FILE 2>&1
+# Run the script every 12 hours (from midnight) with a random delay over one hour
+0 */12 * * * root sleep $((RANDOM*3540/32768)) && $UPDATE_SCRIPT_PATH >> $LOG_FILE 2>&1
 EOF
 
 # Set appropriate permissions for the cron file
