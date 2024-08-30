@@ -1,6 +1,6 @@
 # Xahaud Update Script
 
-This repository contains a setup script that installs a Xahaud auto-update script and sets up a cron job to run every 12 hours.
+This repository contains a setup script that installs a Xahaud auto-update script and sets up a cron job to run every 12 hours, including after power off or reboot.
 
 ## Installation
 
