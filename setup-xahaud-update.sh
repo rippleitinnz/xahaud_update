@@ -52,7 +52,7 @@ log() {
 [[ $EUID -ne 0 ]] && exit 1
 
 # Fetch available versions
-filenames=$(curl --silent "${URL}" | grep -Eo '>[^<]+<' | sed -e 's/^>//' -e 's/<$//' | grep -E '^\S+\+[0-9]{2,3}$' | grep -E $RELEASE_TYPE)
+filenames=$(curl --silent "${URL}" | grep -Eo '>[^<]+<' | sed -e 's/^>//' -e 's/<$//' | grep -E '^\S+\+[0-9]{2,3}$' | grep -E "$RELEASE_TYPE")
 
 if [[ "$VERSION" == "latest" ]]; then
   version_filter="release"
@@ -60,7 +60,8 @@ else
   version_filter=$VERSION
 fi
 
-version_file=$(echo "$filenames" | grep "$version_filter" | sort -t'B' -k2n -n | tail -n 1)
+# Sort using version comparison and fetch the latest one
+version_file=$(echo "$filenames" | grep "$version_filter" | sort -V | tail -n 1)
 
 if [[ -z "$version_file" ]]; then
   log "No update found."
